@@ -1,0 +1,26 @@
+ALGORITHM sum_of_distinct_elements
+VAR
+    tab1 : ARRAY_OF INTEGER[];
+    tab2 : ARRAY_OF INTEGER[];
+    i : INTEGER:=0;
+    j : INTEGER:=0;
+    sum : INTEGER:=0;
+BEGIN
+    FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+        FOR j FROM 0 TO tab2.length STEP 1  DO
+            IF (tab1[i]<>tab2[j]) THEN
+                sum:+=tab1[i]+tab2[j];
+                j++;
+            END_IF
+        END_FOR
+    END_FOR
+       FOR j FROM 0 TO tab2.length-1 STEP 1  DO
+        FOR i FROM 0 TO tab1.length STEP 1  DO
+            IF (tab1[i]<>tab2[j]) THEN
+                sum:+=tab1[i]+tab2[j];
+                i++;
+            END_IF
+        END_FOR
+    END_FOR
+    Write (sum)
+END
